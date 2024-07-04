@@ -1,8 +1,9 @@
 import './App.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from "./components/Header/Header";
-import Dashboard from "./pages/Dashboard/Dashboard"
+import DashboardPage from "./pages/DashboardPage/DashboardPage"
 import LandingPage from './pages/LandingPage/LandingPage';
+
 
 function App() {
 
