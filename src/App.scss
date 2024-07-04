@@ -1,0 +1,10 @@
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials//mixins" as *;
+
+* {
+  margin:0;
+  padding:0;
+  background-color: $background;
+  font-family: "regular";
+}
