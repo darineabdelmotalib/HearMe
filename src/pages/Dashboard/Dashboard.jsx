@@ -2,7 +2,8 @@ import "./Dashboard.scss"
 
 function Dashboard() {
     return (
-        <section>
+        <section className="dashboard">
+            
 
         </section>
     )
