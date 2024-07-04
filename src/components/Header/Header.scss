@@ -1,0 +1,28 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    position: relative; 
+
+    &__menu {
+        width: 2.5rem;
+        position: absolute; 
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__title {
+        font-size: 3rem;
+        font-family: bold;
+        width: 100%;
+        text-align: center; 
+        color: $darkBlue;
+    }
+}
