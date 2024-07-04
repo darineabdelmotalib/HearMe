@@ -1,8 +1,9 @@
-import "./Dashboard.scss"
+import "./DashboardPage.scss"
 
 function Dashboard() {
     return (
-        <section>
+        <section className="dashboard">
+            
 
         </section>
     )
