@@ -1,0 +1,51 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.dashboard {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1rem;
+
+    &__avatar {
+        border-radius: 50%;
+        width: 80%;
+        border:3px solid $white;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    &__title {
+        font-size:2.3rem;
+        font-family: bold;
+        color: $darkBlue;
+        margin-bottom: 9rem;
+    }
+
+    &__buttons {
+        width: 100%;
+
+        display:flex;
+        justify-content: space-around;
+
+        &__button {
+            width: 12rem;
+            padding:1.2rem;
+            font-size: 1.2rem;
+            border-radius:1rem;
+            background-color: $white;
+            color: $trueBlue;
+            font-family: bold;
+            border:2px solid $white;
+            transition: 0.5s ease-in;
+
+            &:hover {
+                background-color: $trueBlue;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
