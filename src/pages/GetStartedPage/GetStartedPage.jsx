@@ -9,7 +9,6 @@ function GetStartedPage() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [bio, setBio] = useState("");
-    const [avatar, setAvatar] = useState(null);
     const [selectedAvatar, setSelectedAvatar] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
@@ -19,7 +18,6 @@ function GetStartedPage() {
 
     function handleAvatarButton(event, buttonNumber) {
         event.preventDefault();
-        setAvatar(`.../../assets/images/profilePics/${buttonNumber}.png`);
         setSelectedAvatar(buttonNumber); 
         checkValidation();
     }
@@ -41,7 +39,7 @@ function GetStartedPage() {
                     email,
                     username,
                     bio,
-                    avatar
+                    selectedAvatar
                 }
             });
         }
@@ -66,7 +64,7 @@ function GetStartedPage() {
             if (password !== confirmPassword) newErrors.confirmPassword = "Passwords do not match";
         }
 
-        if (!avatar) newErrors.avatar = "Please select an avatar";
+        if (!selectedAvatar) newErrors.avatar = "Please select an avatar";
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
