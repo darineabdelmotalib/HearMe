@@ -3,20 +3,24 @@ import sound from "../../assets/images/sound.png"
 
 function SpeechToTextPage() {
 
-    function handleRecordButton(event) {
+    function handleStartRecord(event) {
         event.preventDefault();
     }
-
-    function handleConvertToTextButton(event) {
+    
+    function handleStopRecord(event) {
         event.preventDefault();
     }
-
 
     return (
         <section className="speech">
-            <p className="speech__text">Press the image below to start recording!</p>
-            <img src={sound} className="speech__image" onClick={handleRecordButton}></img>
-            <button className="speech__button" onClick={handleConvertToTextButton}>Convert to Text</button>
+            <p className="speech__text">Press the 'start' button below to start recording!</p>
+            <img src={sound} className="speech__image"></img>
+
+            <div className="speech__buttons">
+                <button className="speech__buttons__button" onClick={handleStartRecord}>Start</button>
+                <button className="speech__buttons__button speech__buttons__button--stop" onClick={handleStopRecord}>Stop</button>
+            </div>
+            
             <p className="speech__converted-text">No text</p>
         </section>
     )
