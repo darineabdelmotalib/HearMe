@@ -16,7 +16,7 @@
     }
 
     &__image {
-        width: 50%;
+        width: 45%;
         margin-top: 2rem;
         margin-bottom: 3rem;
     }
@@ -26,8 +26,8 @@
         flex-direction: row;
         justify-content: space-around;
         width: 60%;
-        gap:3rem;
-        margin-bottom: 3rem;
+        gap:1rem;
+        margin-bottom: 0rem;
 
         &__button {
             width: 12rem;
@@ -44,20 +44,38 @@
 
             &:hover {
                 cursor: pointer;
-                font-size: 1.2rem;
                 background-color: $background;
                 color: $trueBlue;
             }
 
             &--stop {
+                background-color: $white;
+                color: $trueBlue;
+                border:none;
+
+                &:hover {
+                    background-color: $background;
+                    border: 1px solid $trueBlue;
+                }
+            }
+
+            &--reset {
                 background-color: $background;
                 border-color: $white;
 
-                &:hover {
-                    background-color: $white;
-                }
             }
         }
+    }
+
+    &__microphone-text {
+        margin-top:1rem;
+        margin-bottom: 2rem;
+    }
+
+    &__play-audio {
+        margin-bottom: 4rem;
+        box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+        border-radius:999px;
     }
 
     &__converted-text {
