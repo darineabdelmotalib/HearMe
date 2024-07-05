@@ -2,6 +2,10 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+.header__menu {
+    display:none;
+}
+
 
 .landing {
     display:flex;

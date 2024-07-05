@@ -1,0 +1,146 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        &--avatar {
+            flex-direction: column;
+        }
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        color: $darkBlue;
+
+        &--avatar {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 0.5px solid $darkBlue;
+        border-radius: 1rem;
+        padding-left: 1rem;
+
+        &--text {
+            padding-bottom: 4rem;
+            resize: none;
+        }
+    }
+
+    &__error {
+        margin-top: 0.5rem;
+        color: red;
+        font-size: 0.9rem;
+    }
+
+    &__button {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: none;
+        border: none;
+        font-size: 1.3rem;
+        font-family: bold;
+        color: $darkBlue;
+        border: 1px solid $darkBlue;
+        margin-bottom: 1rem;
+        transition: 0.4s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $trueBlue;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__showPass {
+        margin-top: 1rem;
+        width: 3.5rem;
+        border-radius:1rem;
+        align-self:flex-end;
+        margin-bottom:0;
+    }
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+
+    &__button {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        border: 2px solid $white; 
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--1 {
+            background: url("../../assets/images/profilePics/avatarFemale1.png");
+            background-position: center;
+            background-size:cover;
+            margin-right: 1rem;
+        }
+
+        &--2 {
+            background: url("../../assets/images/profilePics/avatarFemale2.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--3 {
+            background: url("../../assets/images/profilePics/avatarFemale3.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--4 {
+            background: url("../../assets/images/profilePics/avatarMale2.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--5 {
+            background: url("../../assets/images/profilePics/avatarMale3.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--6 {
+            background: url("../../assets/images/profilePics/avatarMale1.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--selected {
+            transition: none;
+            border: 2px solid $darkBlue; 
+        }
+    }
+}
