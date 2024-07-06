@@ -71,9 +71,17 @@
     &__showPass {
         margin-top: 1rem;
         width: 3.5rem;
+        border: 0.5px solid $darkBlue;
         border-radius:1rem;
         align-self:flex-end;
         margin-bottom:0;
+        padding:0.1rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 

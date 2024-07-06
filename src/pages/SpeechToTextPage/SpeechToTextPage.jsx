@@ -19,7 +19,6 @@ function SpeechToTextPage() {
         return <span>Your Browser does not support speech to text recognition</span>
     }
 
-
     return (
         <section className="speech">
             <p className="speech__text">Press the 'start' button below to start recording!</p>
