@@ -8,9 +8,9 @@ import "regenerator-runtime/runtime";
 function SpeechToTextModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
-  const [text, setText] = useState("Start recording!");
+  const [text, setText] = useState("");
   const [recording, setRecording] = useState(false);
-  const [apiResult, setApiResult] = useState("No translation");
+  const [apiResult, setApiResult] = useState("");
   const [language, setLanguage] = useState("english");
 
   const handleOnRecord = async (event) => {
@@ -18,6 +18,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
 
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
+
     if (!SpeechRecognition) {
       alert("Your browser does not support Speech Recognition.");
       return;
@@ -53,8 +54,8 @@ function SpeechToTextModal({ isOpen, onClose }) {
 
   const handleReset = (event) => {
     event.preventDefault();
-    setText("Start recording!");
-    setApiResult("No translation");
+    setText("");
+    setApiResult("");
   };
 
   return (
@@ -68,39 +69,51 @@ function SpeechToTextModal({ isOpen, onClose }) {
             alt="close button"
           />
           <p className="speech__text">
-            Press the 'start' button below to start recording!
+            Select the language you are speaking and hit the mic button to start
+            recording!
           </p>
 
-          <button
-            className={`speech__mic-toggle ${recording ? "is-recording" : ""}`}
-            id="mic"
-            onClick={handleOnRecord}
-          >
-            <span className="speech__mic-icon">
-              <img className="speech__mic-icon" src={mic} alt="mic icon"></img>
-            </span>
-          </button>
-
           <div className="speech__buttons">
-            <label htmlFor="language">Select Language: </label>
-            <select
-              id="language"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            >
-              <option value="english">English</option>
-              <option value="french">French</option>
-              <option value="spanish">Spanish</option>
-            </select>
+            <div className="speech__language">
+              <label htmlFor="language">Select language: </label>
+              <select
+                id="language"
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)} 
+                className="speech__language__options">
+                <option value="english" className="speech__option">English</option>
+                <option value="french">French</option>
+                <option value="spanish">Spanish</option>
+              </select>
+            </div>
+
             <button
-              className="speech__buttons__button speech__buttons__button--reset"
+              className={`speech__mic-toggle ${
+                recording ? "is-recording" : ""
+              }`}
+              id="mic"
+              onClick={handleOnRecord}
+            >
+              <span className="speech__mic-icon">
+                <img
+                  className="speech__mic-icon"
+                  src={mic}
+                  alt="mic icon"
+                ></img>
+              </span>
+            </button>
+          </div>
+          <p className="speech__converted-text">Speech: {text}</p>
+          <p className="speech__converted-text">Translation: {apiResult}</p>
+
+          <div className="speech__buttons-container">
+            <button
+              className="speech__buttons-container__reset"
               onClick={handleReset}
             >
               Reset
             </button>
           </div>
-          <p className="speech__converted-text">{text}</p>
-          <p className="speech__converted-text">{apiResult}</p>
         </section>
       </div>
     </div>

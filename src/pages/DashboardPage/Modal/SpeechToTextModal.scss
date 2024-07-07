@@ -53,6 +53,46 @@
     text-align: center;
     font-family: bold;
     margin-top: 1rem;
+    margin-bottom:0rem;
+    padding-right:1rem;
+    padding-left:1rem;
+  }
+
+  &__buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    gap:2rem;
+
+    @include desktop {
+      width:100%;
+      justify-content: center;
+      gap:6rem;
+      padding:1rem;
+    }
+  }
+
+  &__language {
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+    margin-right: 2rem;
+
+    @include desktop {
+      margin-right:0rem;
+    }
+
+    &__options {
+      border-radius: 1rem;
+      min-width: 6rem;
+      padding:0.5rem;
+      cursor: pointer;
+
+      @include desktop {
+        width: 15rem;
+      }
+    }
   }
 
   &__mic-toggle {
@@ -65,12 +105,17 @@
 
     position: relative;
     display: block;
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     background-color: crimson;
     margin-top: 4rem;
     margin-bottom: 4rem;
+
+    @include desktop {
+      width: 8rem;
+      height: 8rem;
+    }
 
     &:after,
     &:before {
@@ -152,56 +197,46 @@
   }
 
   &__mic-icon {
-    width: 6rem;
+    width: 3rem;
     position: relative;
-    top: 8px;
-    left: 0px;
+    bottom:0.65rem;
+    left:-0.5px;
     background: none;
+
+    @include desktop {
+      top:0.5rem;
+      width: 5rem;
+    }
   }
 
-  &__buttons {
+  &__buttons-container {
+    margin-top:2rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    align-self: center;
+    justify-content: center;
     width: 60%;
     gap: 1rem;
-    margin-bottom: 0rem;
+    margin-bottom: 2rem;
 
-    &__button {
-      width: 12rem;
-      height: 3rem;
-      border-radius: 1rem;
-      color: $white;
-      border: none;
+    &__reset {
+      background-color: white;
+      border:none;
+      padding:1rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      border-radius:1rem;
+      color:$trueBlue;
       font-family: bold;
-      transition: 0.4s ease-in-out;
-      font-size: 1.1rem;
-      border: 1.5px solid $trueBlue;
-      background-color: $trueBlue;
-      margin-bottom: 2rem;
+      font-size:1.1rem;
+      transition:0.3s ease-in-out;
 
       &:hover {
+        background-color: $background;
+        font-size:1rem;
         cursor: pointer;
-        background-color: $background;
-        color: $trueBlue;
-      }
-
-      &--stop {
-        background-color: $white;
-        color: $trueBlue;
-        border: none;
-
-        &:hover {
-          background-color: $background;
-          border: 1px solid $trueBlue;
-        }
-      }
-
-      &--reset {
-        background-color: $background;
-        border-color: $white;
       }
     }
+
   }
 
   &__microphone-text {
@@ -217,11 +252,11 @@
 
   &__converted-text {
     background-color: none;
-    border: 1px solid white;
+    border: 0.1px solid $darkBlue;
     padding: 1rem;
     width: 70%;
-    text-align: center;
+    text-align: start;
     border-radius: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom:1rem;
   }
 }

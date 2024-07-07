@@ -5,7 +5,6 @@ import dummyAvatar from "../../assets/images/profilePics/avatarFemale2.png";
 import SpeechToTextModal from "./Modal/SpeechToTextModal";
 
 
-
 function DashboardPage() {
     const location = useLocation();
     const { name, email, username, bio, selectedAvatar } = location.state || {};
@@ -23,7 +22,7 @@ function DashboardPage() {
     return (
         <section className="dashboard">
             <img src={dummyAvatar} alt="avatar" className="dashboard__avatar"></img>
-            <p className="dashboard__title">{`Hello, ${(name && name) || (!name && `User`)}`}</p>
+            <p className="dashboard__title">{`Hello, ${(name && name) || (!name && `User`)}!`}</p>
 
             <div className="dashboard__buttons">
                 <Link to={"/dashboard/asltotext"}>
