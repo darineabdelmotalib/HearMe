@@ -6,7 +6,6 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import GetStartedPage from './pages/GetStartedPage/GetStartedPage';
 import SpeechToTextPage from './pages/SpeechToTextPage/SpeechToTextPage';
 import AslToText from './pages/AslToText/AslToText';
-import About from './pages/About/About';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path="/dashboard/speechtotext" element={<SpeechToTextPage />} />
         <Route path="/dashboard/asltotext" element={<AslToText />} />
         <Route path="/getstarted" element={<GetStartedPage />} />
-        <Route path="/about" element={<About />}></Route>
       </Routes>
     </BrowserRouter>
   );
