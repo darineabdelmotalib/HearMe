@@ -2,70 +2,224 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.header__menu {
-    display:none;
-}
-
 
 .landing {
     display:flex;
     flex-direction:column;
     align-items: center;
-    padding: 1rem;
+    background-color: $background;
 
-    &__hero {
-        width: 95%;
-        margin-bottom: 0.5rem;
+    @include desktop {
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        padding-right: 4rem;
+        padding-left: 4rem;
+
     }
 
-    &__title {
-        display:flex;
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 4rem;
+    &__left {
+        @include desktop {
+            width: 48%;
+        }
+    }
+
+    &__right {
+        @include desktop {
+            width: 50%;
+        }
     }
 }
 
-.buttons {
+.hero {
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap:3rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    
+    &__img {
+        margin:0;
+        width: 100%;
+
+        @include tablet {
+            width: 90%;
+            margin-top: -2rem;
+        }
+
+        @include desktop {
+            width: 90%;
+        }
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: -4rem;
+        color:$darkBlue;
+    }
+}
+
+.landing__buttons {
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 4rem;
 
     &__button {
+        background-color: $white;
         width: 11rem;
         height: 3rem;
+        color:$trueBlue;
         border-radius: 1rem;
-        color:$white;
-        border: none;
-        font-family:bold;
-        transition: 0.4s ease-in-out;
+        border:none;
+        transition: 0.3s ease-in-out;
         font-size: 1.1rem;
-        
+        font-family:bold;
+
+        @include tablet {
+            height:3.5rem;
+            font-size: 1.3rem;
+        }
+
         &:hover {
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            color:$white;
+            background-color: $background;
         }
 
-        &--getstarted {
-            background-color: $trueBlue;
-            border: 1.5px solid $trueBlue;
+    }
+}
 
-            &:hover {
+.about {
+    display:flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $darkerBackground;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+    @include desktop {
+        background-color: $background;
+        padding-left: 4rem;
+    }
+
+    &__heading {
+        font-size: 1.6rem;
+        font-family:bold;
+        margin-bottom: 1rem;
+        background:none;
+
+        @include tablet {
+            font-size: 1.8rem;
+        }
+
+        @include desktop {
+           display:none;
+        }
+    }
+
+    &__intro {
+        font-size:0.9rem;
+        margin-bottom: 2rem;
+        background:none;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include desktop {
+            display:none;
+        }
+    }
+}
+
+.features {
+    display:flex;
+    flex-direction:column;
+    background:none;
+
+    &__title {
+        font-size:1.1rem;
+        margin-bottom:1.5rem;
+        font-family:bold;
+        background:none;
+
+        @include tablet {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__intro {
+        display:none;
+
+        @include desktop {
+            display:flex;
+            font-size:0.9rem;
+            margin-top: 3rem;
+            background:none;
+        }
+    }
+
+    &__buttons {
+        display:flex;
+        gap:1rem;
+        align-items: center;
+        justify-content: center;
+        background:none;
+
+        @include tablet {
+            gap: 2rem;
+        }
+        @include desktop {
+            gap:1rem;
+        }
+    }
+
+    &__button {
+        border:none;
+        width: 7rem;
+        height: 7rem;
+        font-size: 0.75rem;
+        font-family: bold;
+        border-radius: 50%;
+        color: $white;
+        background-color: $darkBlue;
+        transition: 0.3s ease-in-out;
+
+        @include tablet {
+            width: 8rem;
+            height: 8rem;
+            font-size: 0.9rem;
+        }
+
+        @include desktop {
+            width: 7rem;
+            height: 7rem;
+            font-size: 0.75rem;
+        }
+
+        &:hover {
+            background-color:$darkerBackground;
+            cursor: pointer;
+            color:white;
+            font-size: 0.68rem;
+
+            @include tablet {
+                font-size: 0.8rem;
+            }
+
+            @include desktop {
                 background-color: $background;
-                color: $trueBlue;
+                font-size: 0.68rem;
             }
-        }
-
-        &--login {
-            border: 1.5px solid $white;
-
-            &:hover {
-                background-color: $white;
-                color:$trueBlue;
-            }
-
         }
     }
 }
