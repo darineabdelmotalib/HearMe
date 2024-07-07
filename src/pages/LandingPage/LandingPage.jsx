@@ -37,9 +37,13 @@ function LandingPage() {
               Get Started
             </button>
           </Link>
-          <button className="landing__buttons__button landing__buttons__button--login">
-            Log In
-          </button>
+
+          <Link to={"/login"}>
+            <button className="landing__buttons__button landing__buttons__button--login">
+              Log In
+            </button>
+          </Link>
+          
         </div>
       </div>
 
