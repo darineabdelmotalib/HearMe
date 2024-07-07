@@ -1,0 +1,227 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 0;
+  position: relative;
+  max-width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px; // Adjust size as needed
+  height: 24px;
+  cursor: pointer;
+}
+
+.speech {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 80%;
+  border-radius: 1rem;
+
+  &__close-button {
+    display: flex;
+    align-self: flex-end;
+    width: 1.5rem;
+    background-color: none;
+    padding-right: 0.1rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: bold;
+    margin-top: 1rem;
+  }
+
+  &__mic-toggle {
+    box-sizing: border-box;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: crimson;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    &:after,
+    &:before {
+      --pad: 0rem;
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 0;
+      background-color: rgba(220, 20, 60, 0.2);
+      top: var(--pad);
+      left: var(--pad);
+      right: var(--pad);
+      bottom: var(--pad);
+      border-radius: 50%;
+    }
+
+    &:after {
+      transition: 0.4s;
+    }
+
+    &:before {
+      transition: 0.2s;
+    }
+
+    &:hover:before {
+      --pad: -1rem;
+    }
+
+    &:hover:after {
+      --pad: -2rem;
+    }
+
+    &.is-recording:after {
+      animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+    }
+
+    &.is-recording:before {
+      animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-size: 6rem;
+    }
+  }
+
+  @keyframes smoothPadAfter {
+    0% {
+      top: -2rem;
+      left: -2rem;
+      right: -2rem;
+      bottom: -2rem;
+    }
+
+    100% {
+      top: -1rem;
+      left: -1rem;
+      right: -1rem;
+      bottom: -1rem;
+    }
+  }
+
+  @keyframes smoothPadBefore {
+    0% {
+      top: -1rem;
+      left: -1rem;
+      right: -1rem;
+      bottom: -1rem;
+    }
+
+    100% {
+      top: -0.5rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      bottom: -0.5rem;
+    }
+  }
+
+  &__mic-icon {
+    width: 6rem;
+    position: relative;
+    top: 8px;
+    left: 0px;
+    background: none;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    gap: 1rem;
+    margin-bottom: 0rem;
+
+    &__button {
+      width: 12rem;
+      height: 3rem;
+      border-radius: 1rem;
+      color: $white;
+      border: none;
+      font-family: bold;
+      transition: 0.4s ease-in-out;
+      font-size: 1.1rem;
+      border: 1.5px solid $trueBlue;
+      background-color: $trueBlue;
+      margin-bottom: 2rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $background;
+        color: $trueBlue;
+      }
+
+      &--stop {
+        background-color: $white;
+        color: $trueBlue;
+        border: none;
+
+        &:hover {
+          background-color: $background;
+          border: 1px solid $trueBlue;
+        }
+      }
+
+      &--reset {
+        background-color: $background;
+        border-color: $white;
+      }
+    }
+  }
+
+  &__microphone-text {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__play-audio {
+    margin-bottom: 4rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+  }
+
+  &__converted-text {
+    background-color: none;
+    border: 1px solid white;
+    padding: 1rem;
+    width: 70%;
+    text-align: center;
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+  }
+}

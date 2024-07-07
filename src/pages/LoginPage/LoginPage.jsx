@@ -21,7 +21,7 @@ function LoginPage() {
         event.preventDefault();
 
         if (checkValidation()) {
-            alert(`Thanks ${name}! You have successfully logged in`);
+            alert(`Thanks ${name}! You have successfully logged in.`);
             nav("/dashboard");
         }
     }

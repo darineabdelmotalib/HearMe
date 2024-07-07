@@ -20,7 +20,7 @@
         font-size:2.3rem;
         font-family: bold;
         color: $darkBlue;
-        margin-bottom: 9rem;
+        margin-bottom: 5rem;
     }
 
     &__buttons {
@@ -37,12 +37,13 @@
             background-color: $white;
             color: $trueBlue;
             font-family: bold;
-            border:2px solid $white;
-            transition: 0.5s ease-in;
+            border:none;
+            transition: 0.3s ease-in-out;
+            margin-bottom: 4rem;
 
             &:hover {
-                background-color: $trueBlue;
-                color: white;
+                background-color: $background;
+                font-size:1rem;
                 cursor: pointer;
             }
         }
