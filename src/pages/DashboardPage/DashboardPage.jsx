@@ -1,40 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./DashboardPage.scss";
-import dummyAvatar from "../../assets/images/profilePics/avatarFemale2.png";
 import SpeechToTextModal from "./Modal/SpeechToTextModal";
-
+import AslToTextModal from "./Modal/AslToTextModal/AslToTextModal";
 
 function DashboardPage() {
     const location = useLocation();
-    const { name, email, username, bio, selectedAvatar } = location.state || {};
+    const { name, selectedAvatar } = location.state || {};
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSpeechToTextModalOpen, setIsSpeechToTextModalOpen] = useState(false);
+    const [isAslToTextModalOpen, setIsAslToTextModalOpen] = useState(false);
+    const [avatarSrc, setAvatarSrc] = useState(null);
 
-    const openModal = () => {
-        setIsModalOpen(true);
+    useEffect(() => {
+        if (selectedAvatar) {
+            import(`../../assets/images/profilePics/${selectedAvatar}.png`)
+                .then((image) => {
+                    setAvatarSrc(image.default);
+                })
+                .catch((err) => {
+                    console.error("Error loading avatar image:", err);
+                });
+        }
+    }, [selectedAvatar]);
+
+    const openSpeechToTextModal = () => {
+        setIsSpeechToTextModalOpen(true);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const closeSpeechToTextModal = () => {
+        setIsSpeechToTextModalOpen(false);
+    };
+
+    const openAslToTextModal = () => {
+        setIsAslToTextModalOpen(true);
+    };
+
+    const closeAslToTextModal = () => {
+        setIsAslToTextModalOpen(false);
     };
 
     return (
         <section className="dashboard">
-            <img src={dummyAvatar} alt="avatar" className="dashboard__avatar"></img>
-            <p className="dashboard__title">{`Hello, ${(name && name) || (!name && `User`)}!`}</p>
+            {avatarSrc && <img src={avatarSrc} alt="avatar" className="dashboard__avatar" />}
+            <p className="dashboard__title">{`Hello, ${(name && name) || "User"}!`}</p>
 
             <div className="dashboard__buttons">
-                <Link to={"/dashboard/asltotext"}>
-                    <button className="dashboard__buttons__button">ASL to Text</button>
-                </Link>
+                <button className="dashboard__buttons__button" onClick={openAslToTextModal}>
+                    ASL to Text
+                </button>
 
-                <button className="dashboard__buttons__button" onClick={openModal}>
+                <button className="dashboard__buttons__button" onClick={openSpeechToTextModal}>
                     Speech to Text
                 </button>
             </div>
 
-            <SpeechToTextModal isOpen={isModalOpen} onClose={closeModal} />
+            <AslToTextModal isOpen={isAslToTextModalOpen} onClose={closeAslToTextModal} />
+            <SpeechToTextModal isOpen={isSpeechToTextModalOpen} onClose={closeSpeechToTextModal} />
         </section>
     );
 }

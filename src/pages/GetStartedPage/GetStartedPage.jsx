@@ -1,13 +1,14 @@
 import "./GetStartedPage.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function GetStartedPage() {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [givenName, setGivenName] = useState("");
+  const [givenUsername, setGivenUsername] = useState("");
+  const [givenPassword, setGivenPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [bio, setBio] = useState("");
+  const [givenBio, setGivenBio] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -16,7 +17,7 @@ function GetStartedPage() {
 
   useEffect(() => {
     checkValidation();
-  }, [name, username, password, confirmPassword, selectedAvatar]);
+  }, [givenName, givenUsername, givenPassword, confirmPassword, selectedAvatar]);
 
   function handleAvatarButton(event, buttonNumber) {
     event.preventDefault();
@@ -32,12 +33,11 @@ function GetStartedPage() {
     event.preventDefault();
 
     if (checkValidation()) {
-      alert(`Thanks ${name}! You have successfully signed up`);
+      alert(`Thanks ${givenName}! You have successfully signed up`);
+      addProfileToDataBase();
       navigate("/dashboard", {
         state: {
-          name,
-          username,
-          bio,
+          name: givenName,
           selectedAvatar,
         },
       });
@@ -47,13 +47,13 @@ function GetStartedPage() {
   function checkValidation() {
     const newErrors = {};
 
-    if (!name) newErrors.name = "Name is required";
-    if (!username) newErrors.username = "Username is required";
-    if (!password) newErrors.password = "Password is required";
+    if (!givenName) newErrors.name = "Name is required";
+    if (!givenUsername) newErrors.username = "Username is required";
+    if (!givenPassword) newErrors.password = "Password is required";
     if (!confirmPassword) newErrors.confirmPassword = "Confirm your password";
 
-    if (password && confirmPassword) {
-      if (password !== confirmPassword)
+    if (givenPassword && confirmPassword) {
+      if (givenPassword !== confirmPassword)
         newErrors.confirmPassword = "Passwords do not match";
     }
 
@@ -61,6 +61,26 @@ function GetStartedPage() {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  }
+
+
+  async function addProfileToDataBase() {
+    const newProfile = {
+      name: givenName,
+      username: givenUsername,
+      password: givenPassword,
+      bio: givenBio,
+      avatar: selectedAvatar
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8080/profile", newProfile);
+      console.log(response);
+
+    } catch (error) {
+      console.log("Could not add new warehouse:", error)
+    }
+
   }
 
   return (
@@ -71,7 +91,7 @@ function GetStartedPage() {
           <input
             className="form__input"
             type="text"
-            onChange={(event) => handleInputChange(event, setName)}
+            onChange={(event) => handleInputChange(event, setGivenName)}
           />
           {errors.name && <p className="form__error">{errors.name}</p>}
         </div>
@@ -81,7 +101,7 @@ function GetStartedPage() {
           <input
             className="form__input"
             type="text"
-            onChange={(event) => handleInputChange(event, setUsername)}
+            onChange={(event) => handleInputChange(event, setGivenUsername)}
           />
           {errors.username && <p className="form__error">{errors.username}</p>}
         </div>
@@ -91,7 +111,7 @@ function GetStartedPage() {
           <input
             className="form__input"
             type={showPassword ? "text" : "password"}
-            onChange={(event) => handleInputChange(event, setPassword)}
+            onChange={(event) => handleInputChange(event, setGivenPassword)}
           />
           {errors.password && <p className="form__error">{errors.password}</p>}
         </div>
@@ -120,7 +140,7 @@ function GetStartedPage() {
           <textarea
             className="form__input form__input--text"
             type="text"
-            onChange={(event) => handleInputChange(event, setBio)}
+            onChange={(event) => handleInputChange(event, setGivenBio)}
           ></textarea>
         </div>
       </div>

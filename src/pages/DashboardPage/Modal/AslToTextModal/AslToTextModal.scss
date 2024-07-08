@@ -1,0 +1,69 @@
+@use "../../../../styles/partials/fonts" as *;
+@use "../../../../styles/partials/variables" as *;
+@use "../../../../styles/partials/mixins" as *;
+
+
+.modal-overlay-asl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-asl {
+    background: $background;
+    border-radius: 1rem;
+    padding: 3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    z-index: 1001;
+}
+
+.modal__close-button-asl {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.webcam-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Aspect ratio 4:3 */
+    background: #000;
+}
+
+.webcam-container .webcam,
+.webcam-container .canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:none;
+}
+
+.canvas {
+    z-index: 1;
+}
+
+.webcam {
+    z-index: 0;
+}
+
+.gesture-name {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
