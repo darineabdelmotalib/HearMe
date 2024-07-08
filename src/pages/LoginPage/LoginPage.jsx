@@ -2,6 +2,7 @@ import "./LoginPage.scss";
 import aslPic from "../../assets/images/asl.png";
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 function LoginPage() {
@@ -10,19 +11,34 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
 
-    const nav = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         checkValidation();
       }, [username, password]);
 
 
-    function handleLoginSubmit(event) {
+    async function handleLoginSubmit(event) {
         event.preventDefault();
+        const doesUserExist = await checkUserExists();
+        let name;
+        let selectedAvatar;
 
-        if (checkValidation()) {
+        if (doesUserExist) {
+          name = doesUserExist.name;
+          selectedAvatar = doesUserExist.avatar;
+        }
+
+        if (checkValidation() && doesUserExist) {
             alert(`Thanks ${name}! You have successfully logged in.`);
-            nav("/dashboard");
+            navigate("/dashboard", {
+              state: {
+                name: name,
+                selectedAvatar,
+              },
+            });
+        } else {
+          alert(`Invalid login. Could not find a profile under ${username}, try again!`);
         }
     }
 
@@ -38,6 +54,28 @@ function LoginPage() {
     function handleInputChange(event, setState) {
         event.preventDefault();
         setState(event.target.value);
+    }
+
+
+    async function checkUserExists() {
+      try {
+        const response = await axios.get("http://localhost:8080/profile/");
+        const profiles = response.data;
+
+        const foundProfile = profiles.find((profile) => profile.username === username);
+
+        if (foundProfile) {
+          if (password === foundProfile.password) {
+            return foundProfile;
+          }
+        } else {
+          return false;
+        }
+
+      } catch (error) {
+        console.log("error:", error);
+      }
+
     }
 
 
