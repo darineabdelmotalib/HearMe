@@ -1,0 +1,127 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding:1rem;
+    padding-top: 2rem;
+    margin-bottom: 4rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: center;
+        gap:4rem;
+        margin-top: 4rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    &__left {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__pic {
+        width: 100%;
+
+        @include tablet {
+            width: 90%;
+        }
+
+        @include desktop {
+            max-width: 75%;
+        }
+    }
+
+}
+
+.login-form {
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+
+    @include tablet {
+        width: 50%;
+    }
+
+    @include desktop {
+        width: 40%;
+    }
+
+    &__container {
+        @include tablet {
+            width: 100%;
+        }
+
+        @include desktop {
+            width: 80%;
+        }
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        color: $darkBlue;
+        margin-right: 1rem;
+    }
+
+
+    &__input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 0.5px solid $darkBlue;
+        border-radius: 1rem;
+        padding-left: 1rem;
+
+        @include tablet {
+            width: 95%;
+        }
+
+    }
+
+    &__error {
+        margin-top: 0.5rem;
+        color: red;
+        font-size: 0.9rem;
+    }
+
+
+
+    &__button {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: white;
+        border: none;
+        font-size: 1.3rem;
+        font-family: bold;
+        color: $trueBlue;
+        border: none;
+        margin-bottom: 1rem;
+        margin-top:2rem;
+        transition: 0.3s ease-in-out;
+
+        @include tablet {
+            margin-top:1rem;
+        }
+
+        @include desktop {
+            width: 80%;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $background;
+            border: none;
+            font-size: 1rem;
+        }
+    }
+}

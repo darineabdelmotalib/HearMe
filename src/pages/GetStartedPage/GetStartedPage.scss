@@ -1,0 +1,177 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &__left {
+        @include desktop {
+            width: 50%;
+        }
+    }
+
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        
+        &--avatar {
+            flex-direction: column;
+           
+        }
+
+        &__button {
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: white;
+            border: none;
+            font-size: 1.3rem;
+            font-family: bold;
+            color: $trueBlue;
+            border: none;
+            margin-bottom: 1rem;
+            margin-top:2rem;
+            transition: 0.3s ease-in-out;
+    
+            &:hover {
+                cursor: pointer;
+                background-color: $background;
+                border: none;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        color: $darkBlue;
+
+        &--avatar {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 0.5px solid $darkBlue;
+        border-radius: 1rem;
+        padding-left: 1rem;
+
+        &--text {
+            padding-bottom: 4rem;
+            resize: none;
+        }
+    }
+
+    &__error {
+        margin-top: 0.5rem;
+        color: red;
+        font-size: 0.9rem;
+    }
+
+    
+
+    &__showPass {
+        margin-top: 1rem;
+        width: 3.5rem;
+        border-radius:1rem;
+        align-self:flex-end;
+        margin-bottom:0;
+        background:white;
+        border:none;
+        padding:0.5rem;
+        transition: 0.3s ease-in-out;
+        color: $trueBlue;
+        font-family: bold;
+
+        &:hover {
+            cursor: pointer;
+            font-size: 0.7rem;
+            background: $background;
+        }
+    }
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+
+    &__button {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        border: 2px solid $white; 
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            width: 7.5rem;
+            height: 7.5rem;
+        }
+
+        &--1 {
+            background: url("../../assets/images/profilePics/avatarFemale1.png");
+            background-position: center;
+            background-size:cover;
+            margin-right: 1rem;
+        }
+
+        &--2 {
+            background: url("../../assets/images/profilePics/avatarFemale2.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--3 {
+            background: url("../../assets/images/profilePics/avatarFemale3.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--4 {
+            background: url("../../assets/images/profilePics/avatarMale2.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--5 {
+            background: url("../../assets/images/profilePics/avatarMale3.png");
+            background-position: center;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        &--6 {
+            background: url("../../assets/images/profilePics/avatarMale1.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--selected {
+            transition: none;
+            border: 2px solid $darkBlue; 
+        }
+    }
+}

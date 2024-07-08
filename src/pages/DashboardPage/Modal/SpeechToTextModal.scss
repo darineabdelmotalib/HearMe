@@ -1,0 +1,262 @@
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 0;
+  position: relative;
+  max-width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px; // Adjust size as needed
+  height: 24px;
+  cursor: pointer;
+}
+
+.speech {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 80%;
+  border-radius: 1rem;
+
+  &__close-button {
+    display: flex;
+    align-self: flex-end;
+    width: 1.5rem;
+    background-color: none;
+    padding-right: 0.1rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: bold;
+    margin-top: 1rem;
+    margin-bottom:0rem;
+    padding-right:1rem;
+    padding-left:1rem;
+  }
+
+  &__buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    gap:2rem;
+
+    @include desktop {
+      width:100%;
+      justify-content: center;
+      gap:6rem;
+      padding:1rem;
+    }
+  }
+
+  &__language {
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+    margin-right: 2rem;
+
+    @include desktop {
+      margin-right:0rem;
+    }
+
+    &__options {
+      border-radius: 1rem;
+      min-width: 6rem;
+      padding:0.5rem;
+      cursor: pointer;
+
+      @include desktop {
+        width: 15rem;
+      }
+    }
+  }
+
+  &__mic-toggle {
+    box-sizing: border-box;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    position: relative;
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: crimson;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    @include desktop {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    &:after,
+    &:before {
+      --pad: 0rem;
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 0;
+      background-color: rgba(220, 20, 60, 0.2);
+      top: var(--pad);
+      left: var(--pad);
+      right: var(--pad);
+      bottom: var(--pad);
+      border-radius: 50%;
+    }
+
+    &:after {
+      transition: 0.4s;
+    }
+
+    &:before {
+      transition: 0.2s;
+    }
+
+    &:hover:before {
+      --pad: -1rem;
+    }
+
+    &:hover:after {
+      --pad: -2rem;
+    }
+
+    &.is-recording:after {
+      animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+    }
+
+    &.is-recording:before {
+      animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-size: 6rem;
+    }
+  }
+
+  @keyframes smoothPadAfter {
+    0% {
+      top: -2rem;
+      left: -2rem;
+      right: -2rem;
+      bottom: -2rem;
+    }
+
+    100% {
+      top: -1rem;
+      left: -1rem;
+      right: -1rem;
+      bottom: -1rem;
+    }
+  }
+
+  @keyframes smoothPadBefore {
+    0% {
+      top: -1rem;
+      left: -1rem;
+      right: -1rem;
+      bottom: -1rem;
+    }
+
+    100% {
+      top: -0.5rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      bottom: -0.5rem;
+    }
+  }
+
+  &__mic-icon {
+    width: 3rem;
+    position: relative;
+    bottom:0.65rem;
+    left:-0.5px;
+    background: none;
+
+    @include desktop {
+      top:0.5rem;
+      width: 5rem;
+    }
+  }
+
+  &__buttons-container {
+    margin-top:2rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 60%;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    &__reset {
+      background-color: white;
+      border:none;
+      padding:1rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      border-radius:1rem;
+      color:$trueBlue;
+      font-family: bold;
+      font-size:1.1rem;
+      transition:0.3s ease-in-out;
+
+      &:hover {
+        background-color: $background;
+        font-size:1rem;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  &__microphone-text {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__play-audio {
+    margin-bottom: 4rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+  }
+
+  &__converted-text {
+    background-color: none;
+    border: 0.1px solid $darkBlue;
+    padding: 1rem;
+    width: 70%;
+    text-align: start;
+    border-radius: 1rem;
+    margin-bottom:1rem;
+  }
+}

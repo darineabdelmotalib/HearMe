@@ -1,0 +1,101 @@
+// @use "../../styles/partials/fonts" as *;
+// @use "../../styles/partials/variables" as *;
+// @use "../../styles/partials/mixins" as *;
+
+// .speech {
+//     margin-top: 1rem;
+//     display:flex;
+//     flex-direction:column;
+//     align-items: center;
+//     padding:1rem;
+
+//     &__text {
+//         font-size: 1.5rem;
+//         text-align: center;
+//         font-family: bold;
+//     }
+
+//     &__icon {
+//         font-size: 4rem;
+//         color: $trueBlue;
+//         margin-top: 2rem;
+//         margin-bottom: 3rem;
+//         transition: transform 0.3s ease-in-out;
+
+//         &--animating {
+//             animation: dance 0.5s infinite alternate;
+//         }
+//     }
+
+//     @keyframes dance {
+//         0% { transform: rotate(0deg); }
+//         100% { transform: rotate(10deg); }
+//     }
+
+//     &__buttons {
+//         display:flex;
+//         flex-direction: row;
+//         justify-content: space-around;
+//         width: 60%;
+//         gap:1rem;
+//         margin-bottom: 0rem;
+
+//         &__button {
+//             width: 12rem;
+//             height: 3rem;
+//             border-radius: 1rem;
+//             color:$white;
+//             border: none;
+//             font-family:bold;
+//             transition: 0.4s ease-in-out;
+//             font-size: 1.1rem;
+//             border: 1.5px solid $trueBlue;
+//             background-color: $trueBlue;
+//             margin-bottom: 2rem;
+
+//             &:hover {
+//                 cursor: pointer;
+//                 background-color: $background;
+//                 color: $trueBlue;
+//             }
+
+//             &--stop {
+//                 background-color: $white;
+//                 color: $trueBlue;
+//                 border:none;
+
+//                 &:hover {
+//                     background-color: $background;
+//                     border: 1px solid $trueBlue;
+//                 }
+//             }
+
+//             &--reset {
+//                 background-color: $background;
+//                 border-color: $white;
+
+//             }
+//         }
+//     }
+
+//     &__microphone-text {
+//         margin-top:1rem;
+//         margin-bottom: 2rem;
+//     }
+
+//     &__play-audio {
+//         margin-bottom: 4rem;
+//         box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+//         border-radius:999px;
+//     }
+
+//     &__converted-text {
+//         background-color: none;
+//         border:1px solid white;
+//         padding:1rem;
+//         width: 70%;
+//         text-align: center;
+//         border-radius: 1rem;
+//         margin-bottom: 4rem;
+//     }
+// }
