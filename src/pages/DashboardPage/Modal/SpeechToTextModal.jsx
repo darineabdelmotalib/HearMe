@@ -107,6 +107,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
           <p className="speech__converted-text">Translation: {apiResult}</p>
 
           <div className="speech__buttons-container">
+            
             <button
               className="speech__buttons-container__reset"
               onClick={handleReset}

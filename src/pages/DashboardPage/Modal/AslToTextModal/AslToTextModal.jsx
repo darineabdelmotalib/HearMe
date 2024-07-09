@@ -47,14 +47,16 @@ function AslToTextModal({ isOpen, onClose }) {
           if (hand.length > 0) {
             const GE = new fp.GestureEstimator([
               //possible hand gestures model can estimate
-              loveYouGesture
+              loveYouGesture,
+              fp.Gestures.ThumbsUpGesture,
+              fp.Gestures.VictoryGesture,
             ]);
 
             const gesture = await GE.estimate(hand[0].landmarks, 4);
-
+            setGestureName(gesture?.gestures[0]?.name);
             if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
-              console.log(gesture.gestures[0].name);
-              setGestureName(gesture.gestures[0].name);
+              console.log(gesture.gestures[0].name)
+              // console.log(gesture.gestures[0].name);
     
               const confidence = gesture.gestures.map(
                 (prediction) => prediction.confidence
@@ -63,6 +65,8 @@ function AslToTextModal({ isOpen, onClose }) {
                 Math.max.apply(null, confidence)
               );
             }
+          } else {
+            setGestureName("No gesture detected")
           }
 
           const ctx = canvasRef.current.getContext("2d");
