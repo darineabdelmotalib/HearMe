@@ -25,6 +25,10 @@
     max-width: 600px;
     width: 100%;
     z-index: 1001;
+
+    @include tablet {
+        max-width: 800px;
+    }
 }
 
 .modal__close-button-asl {
@@ -33,7 +37,10 @@
     right: 13px;
     width: 24px;
     height: 24px;
-    cursor: pointer;
+    
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .webcam-container {

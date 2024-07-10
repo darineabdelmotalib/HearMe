@@ -33,11 +33,11 @@
         &__button {
             padding: 1rem;
             border-radius: 1rem;
-            background-color: white;
+            background-color: $teal;
             border: none;
             font-size: 1.3rem;
             font-family: bold;
-            color: $trueBlue;
+            color: $white;
             border: none;
             margin-bottom: 1rem;
             margin-top:2rem;
@@ -47,7 +47,8 @@
                 cursor: pointer;
                 background-color: $background;
                 border: none;
-                font-size: 1rem;
+                font-size: 1.1rem;
+                color: $teal;
             }
         }
     }
@@ -55,7 +56,8 @@
     &__label {
         margin-bottom: 0.5rem;
         font-size: 1.3rem;
-        color: $darkBlue;
+        color: $blue;
+        font-family:bold;
 
         &--avatar {
             width: 100%;
@@ -66,7 +68,7 @@
     &__input {
         padding: 0.5rem;
         font-size: 1rem;
-        border: 0.5px solid $darkBlue;
+        border: 0.5px solid $blue;
         border-radius: 1rem;
         padding-left: 1rem;
 
@@ -78,11 +80,9 @@
 
     &__error {
         margin-top: 0.5rem;
-        color: red;
+        color: rgb(228, 78, 78);
         font-size: 0.9rem;
     }
-
-    
 
     &__showPass {
         margin-top: 1rem;
@@ -90,17 +90,18 @@
         border-radius:1rem;
         align-self:flex-end;
         margin-bottom:0;
-        background:white;
+        background:$teal;
         border:none;
         padding:0.5rem;
         transition: 0.3s ease-in-out;
-        color: $trueBlue;
+        color: $white;
         font-family: bold;
 
         &:hover {
             cursor: pointer;
             font-size: 0.7rem;
             background: $background;
+            color:$teal;
         }
     }
 }
@@ -171,7 +172,7 @@
 
         &--selected {
             transition: none;
-            border: 2px solid $darkBlue; 
+            border: 2px solid $blue; 
         }
     }
 }

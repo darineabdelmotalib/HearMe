@@ -6,6 +6,8 @@ import * as handpose from "@tensorflow-models/handpose";
 import Webcam from "react-webcam";
 import { drawHand } from "./utilities";
 import {loveYouGesture} from "./LoveYou"; 
+import {helloGesture} from "./Hello"; 
+import {yesGesture} from "./Yes"; 
 import * as fp from "fingerpose";
 
 function AslToTextModal({ isOpen, onClose }) {
@@ -48,12 +50,21 @@ function AslToTextModal({ isOpen, onClose }) {
             const GE = new fp.GestureEstimator([
               //possible hand gestures model can estimate
               loveYouGesture,
-              fp.Gestures.ThumbsUpGesture,
-              fp.Gestures.VictoryGesture,
+              //fp.Gestures.ThumbsUpGesture,
+              //fp.Gestures.VictoryGesture,
+              helloGesture,
+              yesGesture
             ]);
 
             const gesture = await GE.estimate(hand[0].landmarks, 4);
-            setGestureName(gesture?.gestures[0]?.name);
+
+            if (gesture?.gestures[0]?.name == "thumbs_up") {
+              setGestureName("Thumbs up");
+            } else {
+              setGestureName(gesture?.gestures[0]?.name);
+            }
+
+
             if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
               console.log(gesture.gestures[0].name)
               // console.log(gesture.gestures[0].name);

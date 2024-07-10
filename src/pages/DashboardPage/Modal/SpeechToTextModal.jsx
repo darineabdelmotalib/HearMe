@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import close from "../../../assets/icons/close.png";
 import mic from "../../../assets/icons/mic.png";
@@ -12,6 +12,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
   const [recording, setRecording] = useState(false);
   const [apiResult, setApiResult] = useState("");
   const [language, setLanguage] = useState("english");
+  const recognitionRef = useRef(null);
 
   const handleOnRecord = async (event) => {
     event.preventDefault();
@@ -25,6 +26,8 @@ function SpeechToTextModal({ isOpen, onClose }) {
     }
 
     const recognition = new SpeechRecognition();
+    recognitionRef.current = recognition;
+
     recognition.onstart = () => {
       setRecording(true);
     };
@@ -56,6 +59,18 @@ function SpeechToTextModal({ isOpen, onClose }) {
     event.preventDefault();
     setText("");
     setApiResult("");
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setRecording(false);
+    }
+  };
+
+  const handleStop = (event) => {
+    event.preventDefault();
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setRecording(false);
+    }
   };
 
   return (
@@ -69,8 +84,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
             alt="close button"
           />
           <p className="speech__text">
-            Select the language you are speaking and hit the mic button to start
-            recording!
+            Select the languages for translation. Speaking in English will translate to the chosen language, and speaking in the chosen language will translate to English. <br></br><br></br>Hit the mic button to get started!
           </p>
 
           <div className="speech__buttons">
@@ -88,9 +102,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
             </div>
 
             <button
-              className={`speech__mic-toggle ${
-                recording ? "is-recording" : ""
-              }`}
+              className={`speech__mic-toggle ${recording ? "is-recording" : ""}`}
               id="mic"
               onClick={handleOnRecord}
             >
@@ -107,6 +119,12 @@ function SpeechToTextModal({ isOpen, onClose }) {
           <p className="speech__converted-text">Translation: {apiResult}</p>
 
           <div className="speech__buttons-container">
+            <button
+              className="speech__buttons-container__reset"
+              onClick={handleStop}
+            >
+              Stop
+            </button>
             
             <button
               className="speech__buttons-container__reset"

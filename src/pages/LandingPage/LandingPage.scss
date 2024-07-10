@@ -16,7 +16,6 @@
         padding-bottom: 2rem;
         padding-right: 4rem;
         padding-left: 4rem;
-
     }
 
     &__left {
@@ -58,7 +57,8 @@
         font-size: 1.5rem;
         text-align: center;
         margin-top: -4rem;
-        color:$darkBlue;
+        color:$blue;
+        font-family:bold;
     }
 }
 
@@ -70,10 +70,10 @@
     margin-bottom: 4rem;
 
     &__button {
-        background-color: $white;
+        background-color: $teal;
         width: 11rem;
-        height: 3rem;
-        color:$trueBlue;
+        height: 4rem;
+        color:$white;
         border-radius: 1rem;
         border:none;
         transition: 0.3s ease-in-out;
@@ -88,7 +88,7 @@
         &:hover {
             cursor: pointer;
             font-size: 1rem;
-            color:$white;
+            color:$teal;
             background-color: $background;
         }
 
@@ -100,7 +100,7 @@
     margin-top: 2rem;
     flex-direction: column;
     justify-content: center;
-    background-color: $darkerBackground;
+    background-color: $blue;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 2rem;
@@ -116,6 +116,7 @@
         font-family:bold;
         margin-bottom: 1rem;
         background:none;
+        color:white;
 
         @include tablet {
             font-size: 1.8rem;
@@ -130,6 +131,7 @@
         font-size:0.9rem;
         margin-bottom: 2rem;
         background:none;
+        color:white;
 
         @include tablet {
             font-size: 1rem;
@@ -145,26 +147,29 @@
     display:flex;
     flex-direction:column;
     background:none;
+    color:white;
 
     &__title {
-        font-size:1.1rem;
+        font-size: 1.6rem;
         margin-bottom:1.5rem;
         font-family:bold;
         background:none;
-
-        @include tablet {
-            font-size: 1.3rem;
+        color:white;
+        
+        @include desktop {
+            color:$blue;
         }
     }
 
     &__intro {
         display:none;
-
+        
         @include desktop {
             display:flex;
             font-size:0.9rem;
             margin-top: 3rem;
             background:none;
+            color:$blue;
         }
     }
 
@@ -190,8 +195,8 @@
         font-size: 0.75rem;
         font-family: bold;
         border-radius: 50%;
-        color: $white;
-        background-color: $darkBlue;
+        color: $teal;
+        background-color: $white;
         transition: 0.3s ease-in-out;
 
         @include tablet {
@@ -203,11 +208,14 @@
         @include desktop {
             width: 7rem;
             height: 7rem;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            padding:1rem;
+            background-color: $teal;
+            color:white;
         }
 
         &:hover {
-            background-color:$darkerBackground;
+            background-color:$blue;
             cursor: pointer;
             color:white;
             font-size: 0.68rem;
@@ -218,7 +226,8 @@
 
             @include desktop {
                 background-color: $background;
-                font-size: 0.68rem;
+                font-size: 0.75rem;
+                color: $teal;
             }
         }
     }
