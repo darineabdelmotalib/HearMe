@@ -28,7 +28,10 @@
   right: 10px;
   width: 24px; // Adjust size as needed
   height: 24px;
-  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .speech {
@@ -49,10 +52,10 @@
   }
 
   &__text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
-    font-family: bold;
-    margin-top: 1rem;
+    font-family: inherit;
+    margin-top: 1.5rem;
     margin-bottom:0rem;
     padding-right:1rem;
     padding-left:1rem;
@@ -214,26 +217,28 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    width: 60%;
-    gap: 1rem;
+    width:100%;
+    gap: 3rem;
     margin-bottom: 2rem;
 
     &__reset {
-      background-color: white;
+      background-color: $teal;
       border:none;
       padding:1rem;
       padding-right: 2rem;
       padding-left: 2rem;
       border-radius:1rem;
-      color:$trueBlue;
+      color:$white;
       font-family: bold;
       font-size:1.1rem;
       transition:0.3s ease-in-out;
+      width: 10rem;
 
       &:hover {
         background-color: $background;
         font-size:1rem;
         cursor: pointer;
+        color:$teal;
       }
     }
 
@@ -258,5 +263,6 @@
     text-align: start;
     border-radius: 1rem;
     margin-bottom:1rem;
+    font-size:1rem;
   }
 }

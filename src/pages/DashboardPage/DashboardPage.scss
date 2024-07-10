@@ -11,7 +11,7 @@
     &__avatar {
         border-radius: 50%;
         width: 20rem;
-        border:3px solid $white;
+        border:3px solid $teal;
         margin-bottom: 2rem;
         margin-top: 2rem;
     }
@@ -19,12 +19,13 @@
     &__title {
         font-size:2rem;
         font-family: bold;
-        color: $darkBlue;
+        color: $blue;
         margin-bottom: 6rem;
     }
 
     &__buttons {
         width: 100%;
+        margin-bottom:2rem;
 
         display:flex;
         justify-content: space-around;
@@ -34,8 +35,8 @@
             padding:1.2rem;
             font-size: 1.2rem;
             border-radius:1rem;
-            background-color: $white;
-            color: $trueBlue;
+            background-color: $teal;
+            color: $white;
             font-family: bold;
             border:none;
             transition: 0.3s ease-in-out;
@@ -43,7 +44,7 @@
 
             &:hover {
                 background-color: $background;
-                font-size:1rem;
+                font-size:1.1rem;
                 cursor: pointer;
             }
         }

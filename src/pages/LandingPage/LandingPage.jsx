@@ -33,13 +33,13 @@ function LandingPage() {
 
         <div className="landing__buttons">
           <Link to={"/getstarted"}>
-            <button className="landing__buttons__button landing__buttons__button--getstarted">
+            <button className="landing__buttons__button">
               Get Started
             </button>
           </Link>
 
           <Link to={"/login"}>
-            <button className="landing__buttons__button landing__buttons__button--login">
+            <button className="landing__buttons__button">
               Log In
             </button>
           </Link>
