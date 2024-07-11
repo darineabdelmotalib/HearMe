@@ -15,11 +15,11 @@
 }
 
 .modal {
-  background: white;
+  background: none; // Set the modal background to beige
   border-radius: 0;
-  position: relative;
-  max-width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  //position: relative;
+  max-width: 80%; // Adjust the width as needed
+  padding: 1rem; // Add padding for better spacing
 }
 
 .modal__close-button {
@@ -28,26 +28,25 @@
   right: 10px;
   width: 24px; // Adjust size as needed
   height: 24px;
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .speech {
   margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  width: 80%;
+  width: 100%;
   border-radius: 1rem;
+  background-color: $beige;
 
   &__close-button {
     display: flex;
     align-self: flex-end;
     width: 1.5rem;
-    background-color: none;
+    background-color: $beige;
     padding-right: 0.1rem;
   }
 
@@ -56,41 +55,46 @@
     text-align: center;
     font-family: inherit;
     margin-top: 1.5rem;
-    margin-bottom:0rem;
-    padding-right:1rem;
-    padding-left:1rem;
+    margin-bottom: 0rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    color: $blackBackground;
+    background-color: $beige;
   }
 
   &__buttons {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap:2rem;
+    gap: 2rem;
+    background-color: $beige;
 
     @include desktop {
-      width:100%;
+      width: 100%;
       justify-content: center;
-      gap:6rem;
-      padding:1rem;
+      gap: 6rem;
+      padding: 1rem;
     }
   }
 
   &__language {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    gap:0.5rem;
+    gap: 0.5rem;
     margin-right: 2rem;
+    background-color: $beige;
 
     @include desktop {
-      margin-right:0rem;
+      margin-right: 0rem;
     }
 
     &__options {
       border-radius: 1rem;
       min-width: 6rem;
-      padding:0.5rem;
+      padding: 0.5rem;
       cursor: pointer;
+      background-color: $beige;
 
       @include desktop {
         width: 15rem;
@@ -105,6 +109,7 @@
     outline: none;
     background: none;
     cursor: pointer;
+    background-color: $beige;
 
     position: relative;
     display: block;
@@ -202,51 +207,52 @@
   &__mic-icon {
     width: 3rem;
     position: relative;
-    bottom:0.65rem;
-    left:-0.5px;
+    bottom: 0.65rem;
+    left: -0.5px;
     background: none;
 
     @include desktop {
-      top:0.5rem;
+      top: 0.5rem;
       width: 5rem;
     }
   }
 
   &__buttons-container {
-    margin-top:2rem;
+    margin-top: 2rem;
     display: flex;
     align-self: center;
     justify-content: center;
-    width:100%;
+    width: 100%;
     gap: 3rem;
     margin-bottom: 2rem;
+    background-color: $beige;
 
     &__reset {
-      background-color: $teal;
-      border:none;
-      padding:1rem;
+      background-color: $yellow;
+      border: none;
+      padding: 1rem;
       padding-right: 2rem;
       padding-left: 2rem;
-      border-radius:1rem;
-      color:$white;
+      border-radius: 1rem;
+      color: $blackBackground;
       font-family: bold;
-      font-size:1.1rem;
-      transition:0.3s ease-in-out;
+      font-size: 1.1rem;
+      transition: 0.3s ease-in-out;
       width: 10rem;
 
       &:hover {
-        background-color: $background;
-        font-size:1rem;
+        background-color: $beige;
+        font-size: 1rem;
         cursor: pointer;
-        color:$teal;
+        color: $blackBackground;
       }
     }
-
   }
 
   &__microphone-text {
     margin-top: 1rem;
     margin-bottom: 2rem;
+    color: $blackBackground;
   }
 
   &__play-audio {
@@ -256,13 +262,14 @@
   }
 
   &__converted-text {
-    background-color: none;
-    border: 0.1px solid $darkBlue;
+    border: 0.1px solid $blackBackground;
     padding: 1rem;
     width: 70%;
     text-align: start;
     border-radius: 1rem;
-    margin-bottom:1rem;
-    font-size:1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: $blackBackground;
+    background-color: $beige;
   }
 }

@@ -3,7 +3,7 @@
 @use "../../../styles/partials/mixins" as *;
 
 
-.modal {
+.modal-landing {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
     justify-content: center;
 
     &__content {
-        background: $teal;
+        background: $beige;
         padding: 20px;
         border-radius: 1rem;
         position: relative;
@@ -29,18 +29,18 @@
         margin-bottom: 1rem;
         font-family:bold;
         font-size: 1.7rem;
-        color: $white;
+        color: $pink;
         background:none;
     }
 
     &__body {
         font-size: 1rem;
         background:none;
-        color:white;
+        color:$blackBackground;
     }
 }
 
-.modal__close {
+.modal-landing__close {
     position: absolute;
     top: 1rem;
     right: 1rem;

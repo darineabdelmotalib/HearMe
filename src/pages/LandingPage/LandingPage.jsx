@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import "./LandingPage.scss";
 import hero from "../../assets/images/hero.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Modal from "./Modal/Modal";
 
 function LandingPage() {
+  const nav = useNavigate();
+
   const [modalInfo, setModalInfo] = useState({
     show: false,
     title: "",
@@ -20,6 +22,17 @@ function LandingPage() {
     setModalInfo({ show: false, title: "", content: "" });
   };
 
+  function handleQuickStart(event) {
+    event.preventDefault();
+    nav("/dashboard", {
+      state: {
+        name: "User",
+        selectedAvatar: "avatarFemale2"
+      }
+    });
+
+  }
+
   return (
     <section className="landing">
 
@@ -32,9 +45,14 @@ function LandingPage() {
         </div>
 
         <div className="landing__buttons">
+        <button className="landing__buttons__button landing__buttons__button--signup" onClick={handleQuickStart}>
+              Quick Start
+          </button>
+
+
           <Link to={"/getstarted"}>
             <button className="landing__buttons__button">
-              Get Started
+              Sign Up
             </button>
           </Link>
 

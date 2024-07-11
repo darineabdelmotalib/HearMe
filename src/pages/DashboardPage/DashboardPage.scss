@@ -11,15 +11,15 @@
     &__avatar {
         border-radius: 50%;
         width: 20rem;
-        border:3px solid $teal;
+        border:5px solid $yellow;
         margin-bottom: 2rem;
         margin-top: 2rem;
     }
 
     &__title {
-        font-size:2rem;
+        font-size:2.4rem;
         font-family: bold;
-        color: $blue;
+        color: $pink;
         margin-bottom: 6rem;
     }
 
@@ -35,17 +35,18 @@
             padding:1.2rem;
             font-size: 1.2rem;
             border-radius:1rem;
-            background-color: $teal;
-            color: $white;
+            background-color: $yellow;
+            color: $blackBackground;
             font-family: bold;
             border:none;
             transition: 0.3s ease-in-out;
             margin-bottom: 0rem;
 
             &:hover {
-                background-color: $background;
+                background-color: $blackBackground;
                 font-size:1.1rem;
                 cursor: pointer;
+                color:$yellow;
             }
         }
     }

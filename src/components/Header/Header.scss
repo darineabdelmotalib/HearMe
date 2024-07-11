@@ -10,12 +10,15 @@
     padding: 1rem;
     position: relative; 
     text-decoration: none;
-    background-color: $blue;
+    background-color: $pink;
+    border-bottom-left-radius:1rem;
+    border-bottom-right-radius:1rem;
 
     @include tablet {
         padding-right: 2rem;
         padding-left: 2rem;
         justify-content: start;
+        height:5rem;
     }
 
     @include desktop {

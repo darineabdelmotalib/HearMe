@@ -7,13 +7,13 @@ const Modal = ({ show, onClose, title, children }) => {
     if (!show) return null;
 
     return (
-        <div className="modal">
-            <div className="modal__content">
-                <h2 className="modal__title">{title}</h2>
-                <div className="modal__body">
+        <div className="modal-landing">
+            <div className="modal-landing__content">
+            <img className="modal-landing__close" onClick={onClose} src={close}></img>
+                <h2 className="modal-landing__title">{title}</h2>
+                <div className="modal-landing__body">
                     {children}
                 </div>
-                <img className="modal__close" onClick={onClose} src={close}></img>
             </div>
         </div>
     );

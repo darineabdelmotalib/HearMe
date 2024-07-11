@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import GetStartedPage from './pages/GetStartedPage/GetStartedPage';
 
 import LoginPage from './pages/LoginPage/LoginPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="*" element={<LandingPage />}></Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

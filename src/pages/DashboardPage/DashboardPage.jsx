@@ -21,7 +21,7 @@ function DashboardPage() {
                 .catch((err) => {
                     console.error("Error loading avatar image:", err);
                 });
-        }
+        } 
     }, [selectedAvatar]);
 
     const openSpeechToTextModal = () => {

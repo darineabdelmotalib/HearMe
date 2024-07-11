@@ -1,0 +1,21 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.7rem;
+    font-family: bold;
+    color:$white;
+    margin-top:2rem;
+    background-color: $pink;
+    height: 7rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+    @include desktop {
+        height: 7rem;
+    }
+}

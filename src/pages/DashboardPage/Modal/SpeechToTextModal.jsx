@@ -89,7 +89,7 @@ function SpeechToTextModal({ isOpen, onClose }) {
 
           <div className="speech__buttons">
             <div className="speech__language">
-              <label htmlFor="language">Select language: </label>
+              <label htmlFor="language" className="speech__language">Select language: </label>
               <select
                 id="language"
                 value={language}

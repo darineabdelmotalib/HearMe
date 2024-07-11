@@ -17,7 +17,7 @@
 }
 
 .modal-asl {
-    background: $background;
+    background: $beige;
     border-radius: 1rem;
     padding: 3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -37,6 +37,7 @@
     right: 13px;
     width: 24px;
     height: 24px;
+    background-color:$beige;
     
     &:hover {
         cursor: pointer;
@@ -71,6 +72,7 @@
 .gesture-name {
     margin-top: 2rem;
     font-size: 1.5rem;
-    color: #333;
+    color: $blackBackground;
+    background-color: $beige;
     text-align: center;
 }

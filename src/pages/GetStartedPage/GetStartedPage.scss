@@ -33,22 +33,22 @@
         &__button {
             padding: 1rem;
             border-radius: 1rem;
-            background-color: $teal;
+            background-color: $yellow;
             border: none;
             font-size: 1.3rem;
             font-family: bold;
-            color: $white;
+            color: $blackBackground;
             border: none;
-            margin-bottom: 1rem;
+            margin-bottom: 0rem;
             margin-top:2rem;
             transition: 0.3s ease-in-out;
     
             &:hover {
                 cursor: pointer;
-                background-color: $background;
+                background-color: $blackBackground;
                 border: none;
                 font-size: 1.1rem;
-                color: $teal;
+                color: $yellow;
             }
         }
     }
@@ -56,7 +56,7 @@
     &__label {
         margin-bottom: 0.5rem;
         font-size: 1.3rem;
-        color: $blue;
+        color: $beige;
         font-family:bold;
 
         &--avatar {
@@ -68,9 +68,10 @@
     &__input {
         padding: 0.5rem;
         font-size: 1rem;
-        border: 0.5px solid $blue;
+        border: 0.5px solid $beige;
         border-radius: 1rem;
         padding-left: 1rem;
+        color: $beige;
 
         &--text {
             padding-bottom: 4rem;
@@ -80,28 +81,28 @@
 
     &__error {
         margin-top: 0.5rem;
-        color: rgb(228, 78, 78);
+        color: rgb(255, 83, 83);
         font-size: 0.9rem;
     }
 
     &__showPass {
         margin-top: 1rem;
-        width: 3.5rem;
+        width: 4rem;
         border-radius:1rem;
         align-self:flex-end;
         margin-bottom:0;
-        background:$teal;
+        background:$yellow;
         border:none;
         padding:0.5rem;
         transition: 0.3s ease-in-out;
-        color: $white;
+        color: $blackBackground;
         font-family: bold;
 
         &:hover {
             cursor: pointer;
             font-size: 0.7rem;
-            background: $background;
-            color:$teal;
+            background: $blackBackground;
+            color:$yellow;
         }
     }
 }
@@ -172,7 +173,7 @@
 
         &--selected {
             transition: none;
-            border: 2px solid $blue; 
+            border: 5px solid $yellow; 
         }
     }
 }

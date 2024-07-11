@@ -7,7 +7,7 @@
     display:flex;
     flex-direction:column;
     align-items: center;
-    background-color: $background;
+    background-color: $blackBackground;
 
     @include desktop {
         flex-direction: row;
@@ -35,13 +35,15 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom:3rem;
+    margin-bottom:6rem;
     padding-left: 2rem;
     padding-right: 2rem;
     
     &__img {
         margin:0;
         width: 100%;
+        margin-bottom:-4rem;
+        margin-top: -2rem;
 
         @include tablet {
             width: 90%;
@@ -54,10 +56,10 @@
     }
 
     &__title {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         text-align: center;
         margin-top: -4rem;
-        color:$blue;
+        color:$beige;
         font-family:bold;
     }
 }
@@ -70,26 +72,34 @@
     margin-bottom: 4rem;
 
     &__button {
-        background-color: $teal;
+        background-color: $yellow;
         width: 11rem;
         height: 4rem;
-        color:$white;
+        color:$blackBackground;
         border-radius: 1rem;
         border:none;
         transition: 0.3s ease-in-out;
         font-size: 1.1rem;
         font-family:bold;
 
-        @include tablet {
-            height:3.5rem;
-            font-size: 1.3rem;
-        }
-
         &:hover {
             cursor: pointer;
             font-size: 1rem;
-            color:$teal;
-            background-color: $background;
+            color:$yellow;
+            background-color: $blackBackground;
+        }
+
+        &--signup {
+            background-color: $pink;
+
+            &:hover {
+                color:$pink;
+            }
+        }
+
+        @include tablet {
+            height:3.5rem;
+            font-size: 1.3rem;
         }
 
     }
@@ -100,14 +110,16 @@
     margin-top: 2rem;
     flex-direction: column;
     justify-content: center;
-    background-color: $blue;
+    background-color: $blackBackground;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 2rem;
     padding-bottom: 4rem;
 
     @include desktop {
-        background-color: $background;
+        background-color: $blackBackground;
         padding-left: 4rem;
     }
 
@@ -116,7 +128,7 @@
         font-family:bold;
         margin-bottom: 1rem;
         background:none;
-        color:white;
+        color:$pink;
 
         @include tablet {
             font-size: 1.8rem;
@@ -131,7 +143,7 @@
         font-size:0.9rem;
         margin-bottom: 2rem;
         background:none;
-        color:white;
+        color:$beige;
 
         @include tablet {
             font-size: 1rem;
@@ -147,17 +159,17 @@
     display:flex;
     flex-direction:column;
     background:none;
-    color:white;
+    color:$blackBackground;
 
     &__title {
         font-size: 1.6rem;
         margin-bottom:1.5rem;
         font-family:bold;
         background:none;
-        color:white;
+        color:$pink;
         
         @include desktop {
-            color:$blue;
+            color:$pink;
         }
     }
 
@@ -169,7 +181,7 @@
             font-size:0.9rem;
             margin-top: 3rem;
             background:none;
-            color:$blue;
+            color:$beige;
         }
     }
 
@@ -195,8 +207,8 @@
         font-size: 0.75rem;
         font-family: bold;
         border-radius: 50%;
-        color: $teal;
-        background-color: $white;
+        color: $blackBackground;
+        background-color: $yellow;
         transition: 0.3s ease-in-out;
 
         @include tablet {
@@ -210,14 +222,14 @@
             height: 7rem;
             font-size: 0.8rem;
             padding:1rem;
-            background-color: $teal;
-            color:white;
+            background-color: $yellow;
+            color:$blackBackground;
         }
 
         &:hover {
-            background-color:$blue;
+            background-color:$blackBackground;
             cursor: pointer;
-            color:white;
+            color:$yellow;
             font-size: 0.68rem;
 
             @include tablet {
@@ -225,9 +237,9 @@
             }
 
             @include desktop {
-                background-color: $background;
+                background-color: $blackBackground;
                 font-size: 0.75rem;
-                color: $teal;
+                color: $yellow;
             }
         }
     }
